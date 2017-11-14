@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "219952952291",
+    "firebase_url": "https://senalesfinal.firebaseio.com",
+    "project_id": "senalesfinal",
+    "storage_bucket": "senalesfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219952952291:android:3f8b05ed671d10b3",
+        "android_client_info": {
+          "package_name": "com.example.martinez.senalestransitofinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219952952291-hrhvhbqvkfqa1gnqro74kvhbr58j5lok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy1qduuhDq1Yiu2DrhnPHOUIHCCh_qhh0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
