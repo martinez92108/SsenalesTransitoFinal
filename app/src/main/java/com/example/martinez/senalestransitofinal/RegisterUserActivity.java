@@ -103,7 +103,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                                 DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
 
                                 DatabaseReference currentUserDB= database.child(mauth.getCurrentUser().getUid());
-                                currentUserDB.child("id").setValue(mauth.getCurrentUser().getUid());
+                                //currentUserDB.child("id").setValue(mauth.getCurrentUser().getUid());
                                 currentUserDB.child("name").setValue(name);
                                 currentUserDB.child("image").setValue("default");
 

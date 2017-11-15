@@ -62,7 +62,18 @@ public class MainActivity extends AppCompatActivity {
     private int CAMERA_REQUEST_CODE = 0;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
+    private DatabaseReference Reference;
 
+
+
+    protected void onStart() {
+        super.onStart();
+
+        if (auth.getCurrentUser() == null)
+            return;
+
+        auth.addAuthStateListener(authStateListener);
+    }
 
 
 
@@ -74,45 +85,47 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        textViewusuario=(TextView)findViewById(R.id.id_log_usuario);
-        imageViewusu=(ImageView)findViewById(R.id.id_img_login);
+
+
+        textViewusuario = (TextView) findViewById(R.id.id_log_usuario);
+        imageViewusu = (ImageView) findViewById(R.id.id_img_login);
         imageViewusu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                if(intent.resolveActivity(getPackageManager())!=null){
-                    startActivityForResult(Intent.createChooser(intent,"seleccione una imagen para su perfil"),CAMERA_REQUEST_CODE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(Intent.createChooser(intent, "seleccione una imagen para su perfil"), CAMERA_REQUEST_CODE);
                 }
             }
         });
 
-        buttonsalir=(Button)findViewById(R.id.id_btn_login);
+        buttonsalir = (Button) findViewById(R.id.id_btn_login);
         buttonsalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(auth.getCurrentUser() !=null){
+                if (auth.getCurrentUser() != null) {
                     auth.signOut();
                 }
 
             }
         });
-        progressDialog= new ProgressDialog(this);
-        auth=FirebaseAuth.getInstance();
-        authStateListener=(new FirebaseAuth.AuthStateListener() {
+        progressDialog = new ProgressDialog(this);
+        auth = FirebaseAuth.getInstance();
+        authStateListener = (new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser() != null){
-                    storageReference= FirebaseStorage.getInstance().getReference();
-                    databaseReference= FirebaseDatabase.getInstance().getReference().child("user");
+                if (firebaseAuth.getCurrentUser() != null) {
+                    storageReference = FirebaseStorage.getInstance().getReference();
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
                     databaseReference.child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             textViewusuario.setText(String.valueOf(dataSnapshot.child("name").getValue()));
                             String imageUrl = String.valueOf(dataSnapshot.child("image").getValue());
 
-                            if(URLUtil.isValidUrl(imageUrl)){
+                            if (URLUtil.isValidUrl(imageUrl)) {
                                 Picasso.with(MainActivity.this).load(Uri.parse(imageUrl)).into(imageViewusu);
                             }
                         }
@@ -123,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-                }else {
-                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                } else {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     finish();
                 }
 
@@ -135,17 +148,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
 ///////////////////////////////////obtener datos d ela bd////////////////////////
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+    Reference= FirebaseDatabase.getInstance().getReference().child("user");
         auth = FirebaseAuth.getInstance();
         recyclerView = (RecyclerView) findViewById(R.id.id_rv_item);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -163,13 +169,14 @@ public class MainActivity extends AppCompatActivity {
                             User.class,
                             R.layout.itemsenales,
                             UserViewHolder.class,
-                            databaseReference
+                            Reference
                     ) {
                         @Override
                         protected void populateViewHolder(final UserViewHolder holder, User model, int position) {
                             holder.txtName.setText(model.name);
-                            if (!model.image.equals("default"))
-                                Picasso.with(MainActivity.this).load(model.image).into(holder.imgProfile);
+                            //holder.txtdes.setText(model.des);
+                           // if (!model.image.equals("default"))
+                            Picasso.with(MainActivity.this).load(model.image).into(holder.imgProfile);
                         }
                     };
                     recyclerView.setAdapter(firebaseRecyclerAdapter);
@@ -181,30 +188,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
+
     public static class User {
         String name;
         String image;
+       // String des;
     }
 
 
-    protected void onStart() {
-        super.onStart();
 
-        if (auth.getCurrentUser() == null)
-            return;
-
-        auth.addAuthStateListener(authStateListener);
-    }
 
 
 
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         TextView txtName;
+        //TextView txtdes;
         ImageView imgProfile;
 
         public UserViewHolder(View itemView) {
             super(itemView);
+
+
             txtName = (TextView) itemView.findViewById(R.id.id_img_nombre);
+           // txtdes=(TextView)  itemView.findViewById(R.id.id_descripcion);
             imgProfile = (ImageView) itemView.findViewById(R.id.img_item_cardview);
         }
     }
