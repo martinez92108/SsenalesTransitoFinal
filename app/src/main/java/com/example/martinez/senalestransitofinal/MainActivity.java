@@ -1,18 +1,24 @@
 package com.example.martinez.senalestransitofinal;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,8 +38,20 @@ import com.yalantis.ucrop.UCrop;
 import java.io.File;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
+
+
+
+
+
+
+
+
+
+    private RecyclerView recyclerView;
 
     private FirebaseAuth auth;
     private TextView textViewusuario;
@@ -47,20 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void onStart(){
-        super.onStart();
-        auth.addAuthStateListener(authStateListener);
-    }
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         textViewusuario=(TextView)findViewById(R.id.id_log_usuario);
-
         imageViewusu=(ImageView)findViewById(R.id.id_img_login);
-
         imageViewusu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,7 +130,138 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////obtener datos d ela bd////////////////////////
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+        auth = FirebaseAuth.getInstance();
+        recyclerView = (RecyclerView) findViewById(R.id.id_rv_item);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() == null) {
+                    Intent logIntent = new Intent(MainActivity.this, LoginActivity.class);
+                    logIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(logIntent);
+                    finish();
+                } else {
+                    FirebaseRecyclerAdapter<User, UserViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<User, UserViewHolder>(
+                            User.class,
+                            R.layout.itemsenales,
+                            UserViewHolder.class,
+                            databaseReference
+                    ) {
+                        @Override
+                        protected void populateViewHolder(final UserViewHolder holder, User model, int position) {
+                            holder.txtName.setText(model.name);
+                            if (!model.image.equals("default"))
+                                Picasso.with(MainActivity.this).load(model.image).into(holder.imgProfile);
+                        }
+                    };
+                    recyclerView.setAdapter(firebaseRecyclerAdapter);
+                }
+            }
+        };
+
+
     }
+
+
+    public static class User {
+        String name;
+        String image;
+    }
+
+
+    protected void onStart() {
+        super.onStart();
+
+        if (auth.getCurrentUser() == null)
+            return;
+
+        auth.addAuthStateListener(authStateListener);
+    }
+
+
+
+    public static class UserViewHolder extends RecyclerView.ViewHolder {
+        TextView txtName;
+        ImageView imgProfile;
+
+        public UserViewHolder(View itemView) {
+            super(itemView);
+            txtName = (TextView) itemView.findViewById(R.id.id_img_nombre);
+            imgProfile = (ImageView) itemView.findViewById(R.id.img_item_cardview);
+        }
+    }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public String getRandomString(){
