@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
                     storageReference = FirebaseStorage.getInstance().getReference();
-                    // databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+                     databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
                     databaseReference.child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -142,11 +142,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+    }
 ///////////////////////////////////obtener datos de la bd////////////////////////
+/*
 
-
-        Reference = FirebaseDatabase.getInstance().getReference().getRoot();
+        Reference = FirebaseDatabase.getInstance().getReference().child("imagen");
 
         auth = FirebaseAuth.getInstance();
         recyclerView = (RecyclerView) findViewById(R.id.id_rv_item);
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-
+*/
 
 
 
@@ -326,9 +326,6 @@ public class MainActivity extends AppCompatActivity {
 
         progressDialog.setMessage("Uploading image...");
         progressDialog.show();
-
-
-
 
         currentUserDB.child("image").addValueEventListener(new ValueEventListener() {
             @Override
