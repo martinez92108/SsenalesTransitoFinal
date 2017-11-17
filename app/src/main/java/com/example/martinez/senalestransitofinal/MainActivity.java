@@ -13,12 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.URLUtil;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.martinez.senalestransitofinal.Adapter.AdapterSenales;
+import com.example.martinez.senalestransitofinal.ModelSenales.ImagenModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,6 +43,7 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private DatabaseReference Reference;
 
+    List<ImagenModel> models;
+
+    AdapterSenales adapter;
+
 
     protected void onStart() {
         super.onStart();
@@ -73,6 +80,72 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        recyclerView=(RecyclerView)findViewById(R.id.id_rv_item);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this) );
+
+        models= new ArrayList<>();
+
+        FirebaseDatabase refdatabase = FirebaseDatabase.getInstance();
+
+        adapter = new AdapterSenales(models,getApplicationContext());
+        recyclerView.setAdapter(adapter);
+
+        refdatabase.getReference().child("imagen").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                models.remove(models);
+                for (DataSnapshot snap :
+                       dataSnapshot.getChildren() ) {
+                    ImagenModel imagenModel = snap.getValue(ImagenModel.class);
+                    models.add(imagenModel);
+                    
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
                     storageReference = FirebaseStorage.getInstance().getReference();
-                     databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
                     databaseReference.child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -134,10 +207,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
 
-
-
+/*
 ///////////////////////////////////obtener datos de la bd////////////////////////
 
         Reference = FirebaseDatabase.getInstance().getReference().child("imagen");
@@ -204,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+*/
 
 
 

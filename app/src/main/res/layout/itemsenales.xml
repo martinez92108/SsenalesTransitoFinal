@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="like"
                     android:layout_weight="1"
-                    android:shadowRadius="@integer/google_play_services_version"
+
 
                     />
 

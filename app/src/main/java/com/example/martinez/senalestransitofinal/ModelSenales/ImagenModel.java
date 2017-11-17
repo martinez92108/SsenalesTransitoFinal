@@ -1,0 +1,36 @@
+package com.example.martinez.senalestransitofinal.ModelSenales;
+
+/**
+ * Created by martinez on 17/11/17.
+ */
+
+public class ImagenModel {
+
+    private  String nameimg;
+    private String des;
+    private String img;
+
+    public String getNameimg() {
+        return nameimg;
+    }
+
+    public void setNameimg(String nameimg) {
+        this.nameimg = nameimg;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+}
