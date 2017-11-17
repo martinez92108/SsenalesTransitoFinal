@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.martinez.senalestransitofinal.Adapter.AdapterSenales;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -44,13 +45,6 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity {
 
 
-
-
-
-
-
-
-
     private RecyclerView recyclerView;
 
     private FirebaseAuth auth;
@@ -65,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference Reference;
 
 
-
     protected void onStart() {
         super.onStart();
 
@@ -76,17 +69,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
+
+        buttonsalir = (Button) findViewById(R.id.id_btn_login);
         textViewusuario = (TextView) findViewById(R.id.id_log_usuario);
         imageViewusu = (ImageView) findViewById(R.id.id_img_login);
+
         imageViewusu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -142,9 +135,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
+
+
+
 ///////////////////////////////////obtener datos de la bd////////////////////////
-/*
 
         Reference = FirebaseDatabase.getInstance().getReference().child("imagen");
 
@@ -169,25 +163,26 @@ public class MainActivity extends AppCompatActivity {
                     ) {
                         @Override
                         protected void populateViewHolder(final UserViewHolder holder, User model, int position) {
-                            holder.txtName.setText(model.name);
+                            holder.txtName.setText(model.nameimg);
                             holder.txtdes.setText(model.des);
                             // if (!model.image.equals("default"))
-                            Picasso.with(MainActivity.this).load(model.image).into(holder.imgProfile);
+                            Picasso.with(MainActivity.this).load(model.img).into(holder.imgProfile);
                         }
                     };
                     recyclerView.setAdapter(firebaseRecyclerAdapter);
                 }
             }
         };
+
     }
 
 
-        public static class User {
-            String des;
-            String image;
-            String name;
+    public static class User {
+        String des;
+        String img;
+        String nameimg;
 
-        }
+    }
 
 
         public static class UserViewHolder extends RecyclerView.ViewHolder {
@@ -208,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-*/
+
 
 
 
