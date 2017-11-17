@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+//////////////////////////////////base de datos firebases
         recyclerView=(RecyclerView)findViewById(R.id.id_rv_item);
         recyclerView.setLayoutManager(new LinearLayoutManager(this) );
 
@@ -112,41 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////7
 
 
         buttonsalir = (Button) findViewById(R.id.id_btn_login);
@@ -210,125 +176,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-/*
-///////////////////////////////////obtener datos de la bd////////////////////////
-
-        Reference = FirebaseDatabase.getInstance().getReference().child("imagen");
-
-        auth = FirebaseAuth.getInstance();
-        recyclerView = (RecyclerView) findViewById(R.id.id_rv_item);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() == null) {
-                    Intent logIntent = new Intent(MainActivity.this, LoginActivity.class);
-                    logIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(logIntent);
-                    finish();
-                } else {
-                    FirebaseRecyclerAdapter<User, UserViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<User, UserViewHolder>(
-                            User.class,
-                            R.layout.itemsenales,
-                            UserViewHolder.class,
-                            Reference
-                    ) {
-                        @Override
-                        protected void populateViewHolder(final UserViewHolder holder, User model, int position) {
-                            holder.txtName.setText(model.nameimg);
-                            holder.txtdes.setText(model.des);
-                            // if (!model.image.equals("default"))
-                            Picasso.with(MainActivity.this).load(model.img).into(holder.imgProfile);
-                        }
-                    };
-                    recyclerView.setAdapter(firebaseRecyclerAdapter);
-                }
-            }
-        };
-
-    }
-
-
-    public static class User {
-        String des;
-        String img;
-        String nameimg;
-
-    }
-
-
-        public static class UserViewHolder extends RecyclerView.ViewHolder {
-            TextView txtName;
-            TextView txtdes;
-            ImageView imgProfile;
-
-            public UserViewHolder(View itemView) {
-                super(itemView);
-
-
-                txtName = (TextView) itemView.findViewById(R.id.id_img_nombre);
-                txtdes=(TextView)  itemView.findViewById(R.id.id_descripcion);
-                imgProfile = (ImageView) itemView.findViewById(R.id.img_item_cardview);
-            }
-        }
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public String getRandomString(){
+   public String getRandomString(){
         SecureRandom random= new SecureRandom();
         return  new BigInteger(130,random).toString(32);
 
