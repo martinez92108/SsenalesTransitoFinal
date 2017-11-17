@@ -85,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
         textViewusuario = (TextView) findViewById(R.id.id_log_usuario);
         imageViewusu = (ImageView) findViewById(R.id.id_img_login);
         imageViewusu.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
                     storageReference = FirebaseStorage.getInstance().getReference();
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+                    // databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
                     databaseReference.child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -145,13 +143,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+///////////////////////////////////obtener datos de la bd////////////////////////
 
 
+        Reference = FirebaseDatabase.getInstance().getReference().getRoot();
 
-///////////////////////////////////obtener datos d ela bd////////////////////////
-
-
-    Reference= FirebaseDatabase.getInstance().getReference().child("user");
         auth = FirebaseAuth.getInstance();
         recyclerView = (RecyclerView) findViewById(R.id.id_rv_item);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -174,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         protected void populateViewHolder(final UserViewHolder holder, User model, int position) {
                             holder.txtName.setText(model.name);
-                            //holder.txtdes.setText(model.des);
-                           // if (!model.image.equals("default"))
+                            holder.txtdes.setText(model.des);
+                            // if (!model.image.equals("default"))
                             Picasso.with(MainActivity.this).load(model.image).into(holder.imgProfile);
                         }
                     };
@@ -183,41 +179,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
-
     }
 
 
+        public static class User {
+            String des;
+            String image;
+            String name;
 
-
-
-
-
-    public static class User {
-        String name;
-        String image;
-       // String des;
-    }
-
-
-
-
-
-
-    public static class UserViewHolder extends RecyclerView.ViewHolder {
-        TextView txtName;
-        //TextView txtdes;
-        ImageView imgProfile;
-
-        public UserViewHolder(View itemView) {
-            super(itemView);
-
-
-            txtName = (TextView) itemView.findViewById(R.id.id_img_nombre);
-           // txtdes=(TextView)  itemView.findViewById(R.id.id_descripcion);
-            imgProfile = (ImageView) itemView.findViewById(R.id.img_item_cardview);
         }
-    }
+
+
+        public static class UserViewHolder extends RecyclerView.ViewHolder {
+            TextView txtName;
+            TextView txtdes;
+            ImageView imgProfile;
+
+            public UserViewHolder(View itemView) {
+                super(itemView);
+
+
+                txtName = (TextView) itemView.findViewById(R.id.id_img_nombre);
+                txtdes=(TextView)  itemView.findViewById(R.id.id_descripcion);
+                imgProfile = (ImageView) itemView.findViewById(R.id.img_item_cardview);
+            }
+        }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
