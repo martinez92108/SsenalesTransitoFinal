@@ -1,19 +1,12 @@
 package com.example.martinez.senalestransitofinal;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.martinez.senalestransitofinal.ModelSenales.ComentariosModel;
-import com.example.martinez.senalestransitofinal.Referencias.Referencias;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -41,35 +34,7 @@ public class CometarioActivity extends AppCompatActivity {
 
     }
 
-    /*
-    public  void  insert(){
-        final String titlecoment = title.getText().toString();
-        final String des = decription.getText().toString();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //DatabaseReference currentUserDB= database.child(mauth.getCurrentUser().getUid());
 
-       final  DatabaseReference db=database.getReference(Referencias.REFERENCES);
-        final DatabaseReference DB= db.child(mauth.getCurrentUser().getUid());
-
-
-        guardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                DB.child(Referencias.COMEN).push().setValue(titlecoment);
-
-
-                //ComentariosModel coment = new ComentariosModel(titlecoment,des );
-
-
-                //DB.child(Referencias.COMEN).push().setValue(coment);
-
-
-            }
-        });
-    }
-
-*/
 
 
 
