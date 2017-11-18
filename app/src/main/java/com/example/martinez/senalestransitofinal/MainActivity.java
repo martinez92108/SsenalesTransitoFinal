@@ -292,4 +292,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public  void comentarios(View view){
+        Intent intent = new Intent(MainActivity.this, CometarioActivity.class);
+        startActivity(intent);
+    }
+
 }

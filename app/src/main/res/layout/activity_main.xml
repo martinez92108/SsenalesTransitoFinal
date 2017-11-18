@@ -19,7 +19,16 @@
             android:orientation="vertical"
             >
 
+            <TextView
+                android:id="@+id/id_log_usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="some text"
+                android:textAlignment="center"
 
+
+
+                />
             <ImageView
                 android:id="@+id/id_img_login"
                 android:layout_width="80dp"
@@ -30,14 +39,7 @@
 
 
                 />
-            <TextView
-                android:id="@+id/id_log_usuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="some text"
 
-
-                />
             <Button
                 android:id="@+id/id_btn_login"
                 android:layout_width="match_parent"

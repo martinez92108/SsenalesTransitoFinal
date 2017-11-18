@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.martinez.senalestransitofinal.CometarioActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo comentario"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/id_title_coment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titulo"/>
+        <EditText
+            android:id="@+id/id_decrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Comentario"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:lines="6"
+            android:scrollHorizontally="false"/>
+
+        <Button
+            android:id="@+id/id_guardar_comen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crear comentario"
+            android:layout_marginTop="20dp"
+android:onClick="start"
+
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
