@@ -2,6 +2,7 @@ package com.example.martinez.senalestransitofinal;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,56 +35,30 @@ public class CometarioActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void start(View view) {
 
         final String titlecomen = title.getText().toString().trim();
         final String descrip = decription.getText().toString().trim();
 
+        if (TextUtils.isEmpty(titlecomen)){
+            Toast.makeText(this, "El campo de Titulo esta vacio", Toast.LENGTH_SHORT).show();
+        }else if (TextUtils.isEmpty(descrip)){
+            Toast.makeText(this, "El campo de la Descripcion esta vacio", Toast.LENGTH_SHORT).show();
+
+        }else{
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference("comentarios");
+
+            DatabaseReference currentUserDB= database.child(mauth.getCurrentUser().getUid());
+            DatabaseReference coment = currentUserDB.child("coment").push();
+            coment.child("title").setValue(titlecomen);
+            coment.child("descricion").setValue(descrip);
 
 
+            Toast.makeText( CometarioActivity.this,"Comentario Registrado",Toast.LENGTH_SHORT).show();
 
-        //String user_id=mauth.getCurrentUser().getUid();
-        // Toast.makeText(RegisterUserActivity.this,user_id,Toast.LENGTH_SHORT).show();
-
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("comentarios");
-
-        DatabaseReference currentUserDB= database.child(mauth.getCurrentUser().getUid());
-        DatabaseReference coment = currentUserDB.child("coment").push();
-        //currentUserDB.child("id").setValue(mauth.getCurrentUser().getUid());
-       coment.child("title").setValue(titlecomen);
-       coment.child("descricion").setValue(descrip);
-
-
-        Toast.makeText( CometarioActivity.this,"Usuario Creado",Toast.LENGTH_SHORT).show();
-
-
-
-
+            title.setText("");
+            decription.setText("");
+        }
 
 
     }
