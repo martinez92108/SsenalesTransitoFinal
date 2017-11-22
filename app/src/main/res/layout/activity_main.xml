@@ -47,6 +47,14 @@
                 android:text="salir"
                 />
 
+            <Button
+            android:id="@+id/id_btn_listar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="comentarios"
+
+            />
+
 
             <LinearLayout
                 android:layout_width="match_parent"

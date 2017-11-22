@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewusuario;
     private ImageView imageViewusu;
     private Button buttonsalir;
+    private Button listar;
+
     private ProgressDialog progressDialog;
     private FirebaseAuth.AuthStateListener authStateListener;
     private int CAMERA_REQUEST_CODE = 0;
@@ -80,6 +82,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        listar=(Button)findViewById(R.id.id_btn_listar) ;
+
+        listar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListarComentActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
 
 //////////////////////////////////base de datos firebases
         recyclerView=(RecyclerView)findViewById(R.id.id_rv_item);
@@ -291,6 +305,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
+
 
 
 
