@@ -68,7 +68,7 @@ public class CometarioActivity extends AppCompatActivity {
             DatabaseReference currentUserDB= database.child(mauth.getCurrentUser().getUid());
             DatabaseReference coment = currentUserDB.child("coment").push();
             coment.child("title").setValue(titlecomen);
-            coment.child("descricion").setValue(descrip);
+            coment.child("descripcion").setValue(descrip);
             coment.child("img").setValue(imagencont);
 
 
