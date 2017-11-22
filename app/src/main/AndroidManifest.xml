@@ -25,7 +25,8 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".CometarioActivity"></activity>
+        <activity android:name=".CometarioActivity" />
+        <activity android:name=".ListarComentActivity"></activity>
     </application>
 
 </manifest>
