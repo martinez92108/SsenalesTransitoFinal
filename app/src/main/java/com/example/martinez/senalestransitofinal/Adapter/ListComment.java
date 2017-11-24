@@ -67,6 +67,7 @@ public class ListComment extends RecyclerView.Adapter<ListComment.imagenesHoldel
 
         public imagenesHoldel(View itemView) {
             super(itemView);
+
            textViewttle=(TextView)itemView.findViewById(R.id.id_title);
             textViewcoment=(TextView)itemView.findViewById(R.id.id_descrip);
            imgconet=(ImageView)itemView.findViewById(R.id.img_cardview);

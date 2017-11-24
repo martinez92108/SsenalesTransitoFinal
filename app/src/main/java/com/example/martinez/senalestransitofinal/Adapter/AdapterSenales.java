@@ -50,8 +50,10 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
     @Override
     public void onBindViewHolder(imagenesHoldel holder, int position) {
         final ImagenModel model = imagenModelList.get(position);
+
         holder.textViewnameimg.setText(model.getNameimg());
         holder.textViewdes.setText(model.getDes());
+
         Picasso.with(context).load(model.getImg()).into(holder.imageViewsenales);
 
 
@@ -62,6 +64,8 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
                 Intent intent = new Intent(context, CometarioActivity.class);
 
                 intent.putExtra("image",model.getImg() );
+
+
 
                 v.getContext().startActivity(intent);
             }
@@ -87,6 +91,7 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
             super(itemView);
             textViewnameimg=(TextView)itemView.findViewById(R.id.id_img_nombre);
             textViewdes=(TextView)itemView.findViewById(R.id.id_descripcion);
+
             imageViewsenales=(ImageView)itemView.findViewById(R.id.img_item_cardview);
             buttoncomentario=(Button)itemView.findViewById(R.id.btn_comet);
             imgcontario=(ImageView)itemView.findViewById(R.id.img_coment);

@@ -9,6 +9,7 @@ public class ImagenModel {
     private  String nameimg;
     private String des;
     private String img;
+    private String name;
 
     public String getNameimg() {
         return nameimg;
@@ -32,5 +33,13 @@ public class ImagenModel {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
