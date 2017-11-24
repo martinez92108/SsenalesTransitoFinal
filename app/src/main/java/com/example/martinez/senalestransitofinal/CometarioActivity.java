@@ -65,11 +65,11 @@ public class CometarioActivity extends AppCompatActivity {
 
             DatabaseReference database = FirebaseDatabase.getInstance().getReference("comentarios");
 
-            DatabaseReference currentUserDB= database.child(mauth.getCurrentUser().getUid());
-            DatabaseReference coment = currentUserDB.child("coment").push();
-            coment.child("title").setValue(titlecomen);
-            coment.child("descripcion").setValue(descrip);
-            coment.child("img").setValue(imagencont);
+            DatabaseReference currentUserDB= database.push();
+            //DatabaseReference coment = currentUserDB.child("coment").push();
+           currentUserDB.child("title").setValue(titlecomen);
+           currentUserDB.child("descripcion").setValue(descrip);
+            currentUserDB.child("img").setValue(imagencont);
 
 
 
