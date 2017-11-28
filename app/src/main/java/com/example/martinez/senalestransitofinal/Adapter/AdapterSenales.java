@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.martinez.senalestransitofinal.CometarioActivity;
+import com.example.martinez.senalestransitofinal.FavoritosActivity;
 import com.example.martinez.senalestransitofinal.MasInfoActivity;
 import com.example.martinez.senalestransitofinal.ModelSenales.ImagenModel;
 import com.example.martinez.senalestransitofinal.R;
@@ -57,7 +58,6 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
 
         Picasso.with(context).load(model.getImg()).into(holder.imageViewsenales);
 
-
         holder.buttoncomentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,8 +65,6 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
                 Intent intent = new Intent(context, CometarioActivity.class);
 
                 intent.putExtra("image",model.getImg() );
-
-
 
                 v.getContext().startActivity(intent);
 
@@ -85,6 +83,23 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
                 v.getContext().startActivity(intent);
             }
         });
+
+        holder.like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,FavoritosActivity.class);
+
+                intent.putExtra("image",model.getImg() );
+                intent.putExtra("des",model.getDes());
+                intent.putExtra("name",model.getNameimg());
+
+                v.getContext().startActivity(intent);
+            }
+        });
+
+
+
+
         /// clic del comentar
 
 
@@ -100,7 +115,7 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
         TextView textViewnameimg,textViewdes;
         ImageView imageViewsenales;
         ImageView imgcontario;
-        Button buttoncomentario,masinfo;
+        Button buttoncomentario,masinfo , like;
 
 
         public imagenesHoldel(View itemView) {
@@ -108,9 +123,14 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
             textViewnameimg=(TextView)itemView.findViewById(R.id.id_img_nombre);
             textViewdes=(TextView)itemView.findViewById(R.id.id_descripcion);
 
+
             imageViewsenales=(ImageView)itemView.findViewById(R.id.img_item_cardview);
             buttoncomentario=(Button)itemView.findViewById(R.id.btn_comet);
+
+            like=(Button)itemView.findViewById(R.id.btn_like);
+
             masinfo=(Button)itemView.findViewById(R.id.btn_masinfo);
+
             imgcontario=(ImageView)itemView.findViewById(R.id.img_coment);
         }
     }

@@ -27,7 +27,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".CometarioActivity" />
         <activity android:name=".ListarComentActivity" />
-        <activity android:name=".MasInfoActivity"></activity>
+        <activity android:name=".MasInfoActivity" />
+        <activity android:name=".FavoritosActivity"></activity>
     </application>
 
 </manifest>
