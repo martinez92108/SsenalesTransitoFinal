@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.martinez.senalestransitofinal.CometarioActivity;
+import com.example.martinez.senalestransitofinal.MasInfoActivity;
 import com.example.martinez.senalestransitofinal.ModelSenales.ImagenModel;
 import com.example.martinez.senalestransitofinal.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,6 +69,20 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
 
 
                 v.getContext().startActivity(intent);
+
+            }
+        });
+
+
+        holder.masinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MasInfoActivity.class);
+
+                intent.putExtra("image",model.getImg() );
+                intent.putExtra("masinfo",model.getMasinfo());
+
+                v.getContext().startActivity(intent);
             }
         });
         /// clic del comentar
@@ -85,7 +100,8 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
         TextView textViewnameimg,textViewdes;
         ImageView imageViewsenales;
         ImageView imgcontario;
-        Button buttoncomentario;
+        Button buttoncomentario,masinfo;
+
 
         public imagenesHoldel(View itemView) {
             super(itemView);
@@ -94,6 +110,7 @@ public class AdapterSenales extends RecyclerView.Adapter<AdapterSenales.imagenes
 
             imageViewsenales=(ImageView)itemView.findViewById(R.id.img_item_cardview);
             buttoncomentario=(Button)itemView.findViewById(R.id.btn_comet);
+            masinfo=(Button)itemView.findViewById(R.id.btn_masinfo);
             imgcontario=(ImageView)itemView.findViewById(R.id.img_coment);
         }
     }

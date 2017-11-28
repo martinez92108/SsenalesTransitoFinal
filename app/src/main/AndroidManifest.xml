@@ -26,7 +26,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".CometarioActivity" />
-        <activity android:name=".ListarComentActivity"></activity>
+        <activity android:name=".ListarComentActivity" />
+        <activity android:name=".MasInfoActivity"></activity>
     </application>
 
 </manifest>

@@ -62,6 +62,16 @@
 
                     />
 
+                <Button
+                    android:id="@+id/btn_masinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="mas info"
+                    android:layout_weight="1"
+
+
+                    />
+
 
             </LinearLayout>
 

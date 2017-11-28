@@ -10,6 +10,7 @@ public class ImagenModel {
     private String des;
     private String img;
     private String name;
+    private String masinfo;
 
     public String getNameimg() {
         return nameimg;
@@ -41,5 +42,13 @@ public class ImagenModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMasinfo() {
+        return masinfo;
+    }
+
+    public void setMasinfo(String masinfo) {
+        this.masinfo = masinfo;
     }
 }
