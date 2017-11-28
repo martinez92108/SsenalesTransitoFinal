@@ -58,7 +58,8 @@ public class ListarComentActivity extends AppCompatActivity {
 
         //FirebaseDatabase refdatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
-        DatabaseReference ms= ref.child("comentarios");
+        final DatabaseReference ms= ref.child("comentarios");
+
        // Query ref = ref1.child("comentarios").child("coment");
 
 
@@ -86,9 +87,6 @@ public class ListarComentActivity extends AppCompatActivity {
                 models.remove(models);
                 for (DataSnapshot snap :
                         dataSnapshot.getChildren() ) {
-
-
-
 
 
 
