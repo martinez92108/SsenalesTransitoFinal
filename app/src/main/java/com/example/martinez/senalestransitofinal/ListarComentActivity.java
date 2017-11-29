@@ -58,19 +58,14 @@ public class ListarComentActivity extends AppCompatActivity {
 
         //FirebaseDatabase refdatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
-        final DatabaseReference ms= ref.child("comentarios");
+         DatabaseReference ms= ref.child("comentarios");
+
 
        // Query ref = ref1.child("comentarios").child("coment");
 
 
 
        // DatabaseReference db= ms.child("coment");
-
-
-
-
-
-
 
 
         adapter = new ListComment(models,getApplicationContext());
@@ -91,6 +86,7 @@ public class ListarComentActivity extends AppCompatActivity {
 
 
                     ModelListComment imagenModel = snap.getValue(ModelListComment.class);
+                    String commentKey = dataSnapshot.getKey();
                     models.add(imagenModel);
 
                 }

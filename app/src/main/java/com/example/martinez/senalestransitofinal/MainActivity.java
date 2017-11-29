@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         progressDialog = new ProgressDialog(this);
+
         auth = FirebaseAuth.getInstance();
         authStateListener = (new FirebaseAuth.AuthStateListener() {
             @Override
