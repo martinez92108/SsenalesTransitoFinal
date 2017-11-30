@@ -3,6 +3,7 @@ package com.example.martinez.senalestransitofinal;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -48,20 +49,25 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+    SharedPreferences preferencesUno;
+
+    private Button miscoment;
+
+
     private RecyclerView recyclerView;
 
-    private FirebaseAuth auth;
+
     private TextView textViewusuario;
     private ImageView imageViewusu;
     private Button buttonsalir;
     private Button listar;
 
+    private FirebaseAuth auth;
     private ProgressDialog progressDialog;
     private FirebaseAuth.AuthStateListener authStateListener;
     private int CAMERA_REQUEST_CODE = 0;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
-    private DatabaseReference Reference;
 
     List<ImagenModel> models;
 
@@ -82,6 +88,54 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
+        preferencesUno = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+
+
+
+
+
+
+        miscoment=(Button)findViewById(R.id.id_btn_user_coment);
+
+        miscoment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ListComentUserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         listar=(Button)findViewById(R.id.id_btn_listar) ;
 
@@ -188,6 +242,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+        SharedPreferences.Editor editor = preferencesUno.edit();
+        editor.putString("user", textViewusuario.getText().toString() );
+        editor.commit();
     }
 
 

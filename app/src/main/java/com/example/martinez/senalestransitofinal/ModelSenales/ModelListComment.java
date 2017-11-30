@@ -10,6 +10,7 @@ public class ModelListComment {
     private String title;
     private String descripcion;
     private  String img;
+    private String user_name;
 
 
     public ModelListComment() {
@@ -37,5 +38,13 @@ public class ModelListComment {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 }

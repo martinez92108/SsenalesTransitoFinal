@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.martinez.senalestransitofinal.ModelSenales.ModelListComment;
+import com.example.martinez.senalestransitofinal.ModelSenales.ModelUserComet;
 import com.example.martinez.senalestransitofinal.R;
 import com.squareup.picasso.Picasso;
 
@@ -16,22 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by martinez on 21/11/17.
+ * Created by martinez on 29/11/17.
  */
 
-public class ListComment extends RecyclerView.Adapter<ListComment.imagenesHoldel> {
+public class ListComentUser extends RecyclerView.Adapter<ListComentUser.imagenesHoldel> {
 
-    List<ModelListComment> modelListCommentList = new ArrayList<>();
+    List<ModelUserComet> modelListCommentList = new ArrayList<>();
     Context context;
 
-    public ListComment(List<ModelListComment> modelListCommentList, Context context) {
+    public ListComentUser(List<ModelUserComet> modelListCommentList, Context context) {
         this.modelListCommentList = modelListCommentList;
         this.context = context;
     }
 
     @Override
     public imagenesHoldel onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemcomentario,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listcomentuser,parent,false);
         imagenesHoldel holdel = new imagenesHoldel(v);
         return holdel;
 
@@ -41,11 +41,10 @@ public class ListComment extends RecyclerView.Adapter<ListComment.imagenesHoldel
     @Override
     public void onBindViewHolder(imagenesHoldel holder, int position) {
 
-        final ModelListComment model = modelListCommentList.get(position);
-        holder.textViewttle.setText(model.getTitle());
-        holder.textViewcoment.setText(model.getDescripcion());
-        holder.name.setText(model.getUser_name());
-        Picasso.with(context).load(model.getImg()).into(holder.imgconet);
+        final ModelUserComet model = modelListCommentList.get(position);
+        holder.title.setText(model.getTitle());
+        holder.descrip.setText(model.getDescripcion());
+        Picasso.with(context).load(model.getImg()).into(holder.img);
 
 
 
@@ -61,24 +60,20 @@ public class ListComment extends RecyclerView.Adapter<ListComment.imagenesHoldel
     }
 
     public  static class imagenesHoldel extends RecyclerView.ViewHolder{
-        TextView textViewttle,textViewcoment,name;
-        ImageView imgconet;
+        TextView title,descrip;
+        ImageView img;
 
 
 
         public imagenesHoldel(View itemView) {
             super(itemView);
 
-           textViewttle=(TextView)itemView.findViewById(R.id.id_title);
-            textViewcoment=(TextView)itemView.findViewById(R.id.id_descrip);
-          name=(TextView)itemView.findViewById(R.id. username);
-
-           imgconet=(ImageView)itemView.findViewById(R.id.img_cardview);
+            title=(TextView)itemView.findViewById(R.id.id_list_usert_title);
+            descrip=(TextView)itemView.findViewById(R.id.id_list_des_user);
+           img=(ImageView)itemView.findViewById(R.id.id_img_list_user);
 
         }
     }
-
-
 
 
 

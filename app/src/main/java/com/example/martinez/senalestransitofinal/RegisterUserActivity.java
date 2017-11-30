@@ -24,9 +24,9 @@ public class RegisterUserActivity extends AppCompatActivity {
     private EditText editTextreguser;
     private EditText editTextregemail;
     private EditText editTextregpassword;
-    private FirebaseAuth mauth;
-    private ProgressDialog progressDialog;
     private Button buttonregister;
+    private ProgressDialog progressDialog;
+    private FirebaseAuth mauth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
 

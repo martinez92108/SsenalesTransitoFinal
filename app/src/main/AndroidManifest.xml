@@ -28,7 +28,9 @@
         <activity android:name=".CometarioActivity" />
         <activity android:name=".ListarComentActivity" />
         <activity android:name=".MasInfoActivity" />
-        <activity android:name=".FavoritosActivity"></activity>
+        <activity android:name=".FavoritosActivity" />
+        <activity android:name=".ListComentUserActivity" />
+        <activity android:name=".FavoritoActivity"></activity>
     </application>
 
 </manifest>

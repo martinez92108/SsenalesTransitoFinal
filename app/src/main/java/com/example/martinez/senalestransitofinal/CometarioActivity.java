@@ -1,7 +1,9 @@
 package com.example.martinez.senalestransitofinal;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +29,7 @@ import com.squareup.picasso.Picasso;
 
 public class CometarioActivity extends AppCompatActivity {
 
-
+    SharedPreferences preferencesUno;
 
 
 
@@ -53,6 +55,11 @@ public class CometarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cometario);
+
+
+
+        preferencesUno = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
 
         title = (EditText)findViewById(R.id.id_title_coment);
         decription= (EditText)findViewById(R.id.id_decrip);
@@ -91,10 +98,8 @@ public class CometarioActivity extends AppCompatActivity {
            currentUserDB.child("title").setValue(titlecomen);
            currentUserDB.child("descripcion").setValue(descrip);
             currentUserDB.child("img").setValue(imagencont);
-
-
-
-
+            currentUserDB.child("User key").setValue(mauth.getCurrentUser().getUid());
+            currentUserDB.child("user_name").setValue( preferencesUno.getString("user", null));
 
 
 
@@ -103,12 +108,14 @@ public class CometarioActivity extends AppCompatActivity {
 
 
             DatabaseReference database1 = FirebaseDatabase.getInstance().getReference("coment_user");
+            //DatabaseReference currentUserDB1= database1.push();
              DatabaseReference DB= database1.child(mauth.getCurrentUser().getUid());
             DatabaseReference currentUserDB1= DB.push();
             //DatabaseReference coment = currentUserDB.child("coment").push();
-            currentUserDB1.child("title").setValue(titlecomen);
-            currentUserDB1.child("descripcion").setValue(descrip);
+           currentUserDB1.child("title").setValue(titlecomen);
+           currentUserDB1.child("descripcion").setValue(descrip);
             currentUserDB1.child("img").setValue(imagencont);
+           // DB.child("id").setValue(mauth.getCurrentUser().getUid());
 
 
 
@@ -134,6 +141,11 @@ public class CometarioActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+
+    }
+
+    public void showTitle(View view){
+        String nameuser = preferencesUno.getString("user", null);
 
     }
 
