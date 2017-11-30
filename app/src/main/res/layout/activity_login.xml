@@ -83,17 +83,18 @@
                     android:text="Ingresar"
                     android:onClick="doLogin"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textColor="@android:color/black"
                     android:theme="@style/StyleButton"
-                    android:background="@drawable/borderbutton"/>
+                    android:background="@drawable/borderbutton"
+                    />
 
                 <Button
                     android:id="@+id/btn_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Crear cuenta"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:onClick="register"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
