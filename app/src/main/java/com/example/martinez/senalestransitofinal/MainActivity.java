@@ -10,7 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.URLUtil;
@@ -53,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button miscoment;
 
+    Toolbar toolbar2;
+
 
     private RecyclerView recyclerView;
 
@@ -90,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        toolbar2=(Toolbar)findViewById(R.id.id_toolbar);
+        shoeTollbar(getResources().getString(R.string.p3));
+
+
 
 
 
@@ -110,29 +119,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -370,10 +356,79 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+////////////////////////////////////////toolbar///////////////////////////////////
+
+    public  void  shoeTollbar(String title){
+        setSupportActionBar(toolbar2);
+        getSupportActionBar().setTitle(title);
+
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main,menu);
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()) {
+            case R.id.item1:
+                if (auth.getCurrentUser() != null) {
+                    auth.signOut();
+                }
 
 
 
 
+                return true;
+            case R.id.item2:
+                Intent intent1 = new Intent(MainActivity.this, ListarComentActivity.class);
+
+                startActivity(intent1);
+
+                return true;
+            case R.id.item3:
+                Intent intent2 = new Intent(MainActivity.this,ListComentUserActivity.class);
+                startActivity(intent2);
+
+
+                return true;
+            case R.id.item4:
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+
+
+    }
+
+    public  void comtarios(){
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void showpantallaDos(){
+        Intent a = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(a);
+
+    }
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 
