@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+/*
         miscoment=(Button)findViewById(R.id.id_btn_user_coment);
 
         miscoment.setOnClickListener(new View.OnClickListener() {
@@ -119,10 +119,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+*/
 
 
-
-
+/*
         listar=(Button)findViewById(R.id.id_btn_listar) ;
 
         listar.setOnClickListener(new View.OnClickListener() {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
 
 //////////////////////////////////base de datos firebases
         recyclerView=(RecyclerView)findViewById(R.id.id_rv_item);
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 ///////////////////////////////////////////////////////////////////////////////////////7
 
 
-        buttonsalir = (Button) findViewById(R.id.id_btn_login);
+       // buttonsalir = (Button) findViewById(R.id.id_btn_login);
         textViewusuario = (TextView) findViewById(R.id.id_log_usuario);
         imageViewusu = (ImageView) findViewById(R.id.id_img_login);
 
@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
         buttonsalir = (Button) findViewById(R.id.id_btn_login);
         buttonsalir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
         progressDialog = new ProgressDialog(this);
 
         auth = FirebaseAuth.getInstance();
