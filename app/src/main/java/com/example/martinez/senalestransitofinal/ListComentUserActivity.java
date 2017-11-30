@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Button;
@@ -32,7 +35,7 @@ import java.util.List;
 
 public class ListComentUserActivity extends AppCompatActivity {
 
-
+    Toolbar toolbar;
     private RecyclerView recyclerView;
     private FirebaseAuth auth;
 
@@ -50,6 +53,10 @@ public class ListComentUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_coment_user);
+
+        toolbar=(Toolbar)findViewById(R.id.id_toolbar);
+        shoeTollbar(getResources().getString(R.string.p4),true);
+
 
 
 
@@ -94,5 +101,31 @@ public class ListComentUserActivity extends AppCompatActivity {
 
 
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+
+    //crear boolean para la flecha
+    public  void  shoeTollbar(String title,boolean upbutton){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(title);
+        //flecha
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upbutton);
+
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        Intent intent1 = new Intent(this, MainActivity.class);
+
+        startActivity(intent1);
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }
 
