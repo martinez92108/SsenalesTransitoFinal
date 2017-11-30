@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SenalesTransitoFinal.iml" filepath="$PROJECT_DIR$/SenalesTransitoFinal.iml" />
       <module fileurl="file://C:\Users\alex\Pictures\SsenalesTransitoFinal\SenalesTransitoFinal.iml" filepath="C:\Users\alex\Pictures\SsenalesTransitoFinal\SenalesTransitoFinal.iml" />
       <module fileurl="file://$PROJECT_DIR$/SsenalesTransitoFinal.iml" filepath="$PROJECT_DIR$/SsenalesTransitoFinal.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

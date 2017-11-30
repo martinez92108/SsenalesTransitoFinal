@@ -30,7 +30,7 @@ public class FavoritosActivity extends AppCompatActivity {
 
         textViewnom=(TextView)findViewById(R.id.id_favorito);
         textViewdes=(TextView)findViewById(R.id.id_des_favorito);
-        imageViewfavorito=(ImageView)findViewById(R.id.img_favorito);
+        imageViewfavorito=(ImageView)findViewById(R.id.img_fav);
         mauth = FirebaseAuth.getInstance();
 
 
