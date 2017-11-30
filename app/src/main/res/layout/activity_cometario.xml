@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.martinez.senalestransitofinal.CometarioActivity"
-    android:background="@drawable/bordergrande">
-
+    android:background="@drawable/bordergrande"
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
