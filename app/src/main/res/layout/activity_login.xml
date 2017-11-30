@@ -7,68 +7,111 @@
     android:layout_height="match_parent"
     tools:context="com.example.martinez.senalestransitofinal.LoginActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@drawable/bordergrande">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="95dp"
+                android:layout_marginBottom="15dp"
+                >
+                <ImageView
+                    android:id="@+id/imgbienvenidos"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/bienvenidos_se_al3"
+                    />
+            </RelativeLayout>
 
-            <EditText
-                android:id="@+id/id_user_name"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/id_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="   Ingresar correo electronico"
+                        android:theme="@style/Mystyle"
+                        android:background="@drawable/border"
+                        android:layout_marginTop="10dp"
+                        android:drawableLeft="@drawable/icons8_secured_letter_filled_50"
+                        android:lines="1"
+                        />
+                    <EditText
+                        android:id="@+id/id_user_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Contraseña"
+                        android:theme="@style/Mystyle"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border"
+                        android:layout_marginBottom="15dp"
+                        android:drawableLeft="@drawable/icons8_padlock_50"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
+                        />
+                </LinearLayout>
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:layout_margin="20dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="100dp">
+
+                <Button
+                    android:id="@+id/id_btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ingresar"
+                    android:onClick="doLogin"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:theme="@style/StyleButton"
+                    android:background="@drawable/borderbutton"/>
+
+                <Button
+                    android:id="@+id/btn_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Crear cuenta"
+                    android:textSize="20sp"
+                    android:onClick="register"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/black"
+                    android:theme="@style/StyleButton"
+                    android:background="@drawable/borderbutton"/>
 
 
-                />
 
-            <EditText
-                android:id="@+id/id_user_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="password"
 
-                />
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/id_btn_login"
-                android:layout_width="180dp"
-                android:layout_height="50dp"
-                android:text="Login"
-                android:onClick="doLogin"
-                android:layout_weight="1"
 
 
-                />
-
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:onClick="register"
-                android:layout_weight="1"
-
-                />
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

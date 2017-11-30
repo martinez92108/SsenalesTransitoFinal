@@ -50,6 +50,10 @@
                     android:layout_height="wrap_content"
                     android:text="Editar"
                     android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:theme="@style/StyleButton"
+                    android:background="@drawable/borderbutton"
 
 
                     />
@@ -59,6 +63,10 @@
                     android:layout_height="wrap_content"
                     android:text="Eliminar"
                     android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:theme="@style/StyleButton"
+                    android:background="@drawable/borderbutton"
 
 
                     />

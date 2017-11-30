@@ -8,35 +8,40 @@
 
 
     <RelativeLayout
+        android:id="@+id/rr1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bordergrande">
         <ImageView
             android:id="@+id/img_masinfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             />
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
-            android:background="#53292930"
-            android:padding="10dp">
-            <TextView
-                android:id="@+id/id_masinfo"
+            android:paddingTop="100dp">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Info"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:background="#53292930"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/id_masinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
 
+            </LinearLayout>
 
+        </ScrollView>
 
-
-
-        </LinearLayout>
 
     </RelativeLayout>
 

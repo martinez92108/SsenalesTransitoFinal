@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SenalesTransitoFinal</string>
+
+
+    <string name="p1">Inicio de Sesion</string>
+    <string name="p2">Registrar</string>
+    <string name="p3">Señales</string>
+    <string name="p4">Comentarios</string>
+    <string name="p5">Favoritos</string>
+
 </resources>

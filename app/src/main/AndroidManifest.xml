@@ -13,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RegisterUserActivity" />
         <activity android:name=".MainActivity" />
@@ -30,7 +26,14 @@
         <activity android:name=".MasInfoActivity" />
         <activity android:name=".FavoritosActivity" />
         <activity android:name=".ListComentUserActivity" />
-        <activity android:name=".FavoritoActivity"></activity>
+        <activity android:name=".FavoritoActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

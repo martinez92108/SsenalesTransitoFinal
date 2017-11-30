@@ -5,75 +5,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.martinez.senalestransitofinal.CometarioActivity">
+    tools:context="com.example.martinez.senalestransitofinal.CometarioActivity"
+    android:background="@drawable/bordergrande">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nuevo comentario"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:layout_marginBottom="20dp"/>
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nuevo comentario"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="20dp"/>
 
-        <EditText
-            android:id="@+id/id_title_coment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Titulo"/>
-        <EditText
-            android:id="@+id/id_decrip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Comentario"
-            android:inputType="textMultiLine"
-            android:scrollbars="vertical"
-            android:overScrollMode="always"
-            android:scrollbarStyle="insideInset"
-            android:lines="6"
-            android:scrollHorizontally="false"/>
+                <ImageView
+                    android:id="@+id/img_coment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_margin="10dp"/>
 
-        <Button
-            android:id="@+id/id_guardar_comen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Crear comentario"
-            android:layout_marginTop="20dp"
-android:onClick="start"
+                <EditText
+                    android:id="@+id/id_title_coment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Titulo"
+                    android:textColor="@android:color/white"/>
+                <EditText
+                    android:id="@+id/id_decrip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Comentario"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:textColor="@android:color/white"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:lines="6"
+                    android:scrollHorizontally="false"/>
 
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-
-        >
-        <ImageView
-           android:id="@+id/img_coment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            />
-
-    </LinearLayout>
-
-
-</LinearLayout>
+                <Button
+                    android:id="@+id/id_guardar_comen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Crear comentario"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:theme="@style/StyleButton"
+                    android:background="@drawable/borderbutton"
+                    android:onClick="start"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 
 

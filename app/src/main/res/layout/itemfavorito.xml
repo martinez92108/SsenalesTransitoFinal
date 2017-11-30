@@ -7,7 +7,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bordergrande">
         <ImageView
             android:id="@+id/img_favorito"
             android:layout_width="match_parent"
