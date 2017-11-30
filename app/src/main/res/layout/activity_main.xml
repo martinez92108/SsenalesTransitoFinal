@@ -55,27 +55,9 @@
                         android:layout_margin="10dp"/>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/id_btn_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="salir"
-                    />
 
-                <Button
-                    android:id="@+id/id_btn_listar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="comentarios"
 
-                    />
-                <Button
-                    android:id="@+id/id_btn_user_coment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mis comentarios"
 
-                    />
 
 
                 <LinearLayout
