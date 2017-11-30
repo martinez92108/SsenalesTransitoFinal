@@ -7,10 +7,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.martinez.senalestransitofinal.LoginActivity">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bordergrande">
+        android:background="@drawable/bordergrande"
+
+
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
