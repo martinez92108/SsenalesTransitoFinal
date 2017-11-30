@@ -397,6 +397,12 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.item4:
+                Intent intent5 = new Intent(MainActivity.this,FavoritoActivity.class);
+                startActivity(intent5);
+
+
+                return true;
+
 
             default:
                 return super.onOptionsItemSelected(item);

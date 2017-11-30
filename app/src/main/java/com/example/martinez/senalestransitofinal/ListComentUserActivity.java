@@ -55,7 +55,7 @@ public class ListComentUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_coment_user);
 
         toolbar=(Toolbar)findViewById(R.id.id_toolbar);
-        shoeTollbar(getResources().getString(R.string.p4),true);
+        shoeTollbar(getResources().getString(R.string.p6),true);
 
 
 

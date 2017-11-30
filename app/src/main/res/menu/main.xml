@@ -3,7 +3,7 @@
 
         <item
             android:id="@+id/item1"
-            android:title="sali"></item>
+            android:title="salir"></item>
         <item
             android:id="@+id/item2"
             android:title="comentarios"></item>
